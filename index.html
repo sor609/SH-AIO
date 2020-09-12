@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Smart Home controls</title>
+    <script src="urlconnect.js"></script>
+    <style type="text/css">
+        #aircon {
+            float: left;
+            box-sizing: border-box; font-family: Roboto, sans-serif;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            box-shadow: rgba(0,0,0,0.16) 0px 3px 10px, rgba(0,0,0,0.23) 0px 3px 10px;
+            border-radius: 2px;
+            margin-top: 20px; margin-left: 20px;
+            padding-top: 1px; padding-left: 10px; padding-right: 10px; padding-bottom: 10px;
+            background-color: aqua;
+        }
+        #lights {
+            float: left;
+            box-sizing: border-box; font-family: Roboto, sans-serif;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            box-shadow: rgba(0,0,0,0.16) 0px 3px 10px, rgba(0,0,0,0.23) 0px 3px 10px;
+            border-radius: 2px;
+            margin-top: 20px; margin-left: 20px;
+            padding-top: 1px; padding-left: 10px; padding-right: 10px; padding-bottom: 10px;
+            background-color: lightgoldenrodyellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="aircon">
+    <p>
+        <h1>Aircon options:</h1>
+        <script src="aircon.js"></script>
+    
+    </div>
+    
+    <div id="lights">
+    <p>
+        <h1>Lights options:</h1>
+        <script src="lights.js"></script>
+    </div>
+</body>
+</html>
