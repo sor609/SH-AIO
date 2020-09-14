@@ -37,6 +37,6 @@ showpods()
         myPods.forEach(function(p, i) {
             document.getElementById('aircon').innerHTML += p.room.name +
             " <button onclick=\"onoffAir('" + p.id + "','on')\">On</button>" +
-            " <button onclick=\"onoffAir('" + p.id + "','off')\">Off</button><hr><br>";
+            " <button onclick=\"onoffAir('" + p.id + "','off')\">Off</button><hr>";
         });
     });
