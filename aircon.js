@@ -1,6 +1,8 @@
+const sensiboUrl = 'https://home.sensibo.com/api/v2';
+
 async function showpods() {
     // list all pods
-    const url = 'https://home.sensibo.com/api/v2/users/me/pods?fields=room,id&apiKey=CyXKk8G4t9Ue7nVeUc1sb1i8G9DAAn';
+    let url = sensiboUrl + '/users/me/pods?fields=room,id,measurements&apiKey=' + sensiboApiKey;
     let myPods = await urlGet(url);
     return myPods;
 }
@@ -25,6 +27,7 @@ async function onoffAir(deviceId,action) {
     }
 }
 
+// create UI
 showpods()
     .then(data => {
         let myPods = data;
@@ -34,10 +37,15 @@ showpods()
             document.getElementById('aircon').innerHTML = "No pods";
         }
         else {
+            let buildUI="<table>";
             myPods.forEach(function(p, i) {
-                document.getElementById('aircon').innerHTML += p.room.name +
-                " <button onclick=\"onoffAir('" + p.id + "','on')\">On</button>" +
-                " <button onclick=\"onoffAir('" + p.id + "','off')\">Off</button><hr>";
+                buildUI += "<tr><td colspan=\"2\">" + p.room.name + "</td>" +
+                "<td rowspan=\"2\"><button class=\"button\" onclick=\"onoffAir('" + p.id + "','on')\">On</button></td>" +
+                "<td rowspan=\"2\"><button class=\"button\" onclick=\"onoffAir('" + p.id + "','off')\">Off</button></td></tr>" +
+                "<tr><td>" + p.measurements.temperature + "°</td>" +
+                "<td>" + p.measurements.humidity + "%</td><td></tr>";
             });
+            buildUI += "</table>";
+            document.getElementById('aircon').innerHTML += buildUI;
         }
     });
