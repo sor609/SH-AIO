@@ -9,7 +9,7 @@ async function showpods() {
 
 async function onoffAir(deviceId,action) {
     // change pods state
-    let url = 'https://home.sensibo.com/api/v2/pods/' + deviceId + '/acStates?apiKey=CyXKk8G4t9Ue7nVeUc1sb1i8G9DAAn';
+    let url = sensiboUrl + '/pods/' + deviceId + '/acStates?apiKey=' + sensiboApiKey;
 
     if (action == 'on') {
         // turn on aircon
